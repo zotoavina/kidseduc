@@ -36,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
     private void init(){
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+        userController = UserController.getUserController();
+        userController.setContext(this);
     }
 
     /**
@@ -51,7 +53,11 @@ public class LoginActivity extends AppCompatActivity {
                 try{
                     user = username.getText().toString();
                     mdp = password.getText().toString();
+                    System.out.println("******************************"+user);
+                    userController.withCredentials(user, mdp);
+                    userController.login();
                 }catch (Exception ex){
+                    System.out.println(ex.getMessage());
                     Toast.makeText(LoginActivity.this, "**************"+ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 if(user.equals("") || mdp.equals("")){

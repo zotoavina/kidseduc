@@ -1,8 +1,91 @@
 package com.example.kidseduc.controllers;
 
+import android.util.Log;
+
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.kidseduc.models.User;
 
-public class UserController extends BaseController{
-    private User user;
-    
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+
+public  class UserController extends BaseController{
+    private static  UserController userController = new UserController();
+    private User user = new User();
+    private RequestQueue requestQueue;
+
+    public static UserController getUserController(){
+        return userController;
+    }
+
+    private UserController(){
+
+    }
+
+    public void withCredentials(String userName, String pass){
+        user.setUserName(userName);
+        user.setPassword(pass);
+    }
+
+    public String login()throws Exception{
+        String url = "http://10.0.2.2:8080/api/user/login";
+        JSONObject parameter = new JSONObject();
+        parameter.put("password", user.getPassword());
+        parameter.put("username", user.getUserName());
+        System.out.println(parameter.toString());
+        String mRequestBody = parameter.toString();
+        JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url, null,
+            response -> System.out.println("#################   "+response.toString())
+        , new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("******************" + error.toString());
+            }
+        }){
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+
+            @Override
+            public byte[] getBody(){
+                try {
+                    Log.d("0000000000" , mRequestBody);
+                    return mRequestBody == null ? null : mRequestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
+                    return null;
+                }
+            }
+
+//            @Override
+//            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+//                String responseString = "";
+//                Log.d("http response",  response.toString());
+//                if (response != null) {
+//                    responseString = String.valueOf(response.statusCode);
+//                }
+//                return Response.success(new JSONObject(), HttpHeaderParser.parseCacheHeaders(response));
+//            }
+        };
+
+        requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(stringRequest);
+        return null;
+    }
+
+
+
+
+
+
 }
