@@ -14,11 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kidseduc.R;
+import com.example.kidseduc.controllers.UserController;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
+    private UserController userController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
