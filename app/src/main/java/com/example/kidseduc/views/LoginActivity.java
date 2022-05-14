@@ -1,5 +1,6 @@
 package com.example.kidseduc.views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(user.equals("") || mdp.equals("")){
                     Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(LoginActivity.this, "logged", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                 }
             }
         });
