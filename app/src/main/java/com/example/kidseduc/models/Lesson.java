@@ -3,10 +3,10 @@ package com.example.kidseduc.models;
 public class Lesson {
     private String title;
     private String description;
-    private int type;
+    private String type;
     private String content;
 
-    public Lesson(String title, String description, int type, String content) {
+    public Lesson(String title, String description, String type, String content) {
         this.title = title;
         this.description = description;
         this.type = type;
@@ -29,11 +29,11 @@ public class Lesson {
         this.description = description;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
