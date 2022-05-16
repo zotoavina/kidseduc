@@ -12,6 +12,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kidseduc.models.ResponseFormat;
 import com.example.kidseduc.models.User;
 import com.google.gson.Gson;
 
@@ -51,7 +52,12 @@ public  class UserController extends BaseController{
                 try {
                     System.out.println("#################   "+response.get("data").toString());
                     Gson gson = new Gson();
-                    user = gson.fromJson(response.get("data").toString(), User.class);
+                    ResponseFormat<User> responseFormat =new  ResponseFormat<>();
+                    responseFormat.fromJson(response, User.class);
+                    if(responseFormat.ok())
+                        System.out.println("redirection menu");
+                    else
+                        System.out.println("error");
                     int a = 0;
                 } catch (JSONException e) {
                     e.printStackTrace();
