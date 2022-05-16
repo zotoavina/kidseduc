@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
                         delay = delay + 100;
                     }
                     //startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                    startActivity(new Intent(SplashActivity.this, SingInActivity.class));
+                    startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
