@@ -13,7 +13,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kidseduc.models.User;
+import com.google.gson.Gson;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
@@ -32,7 +34,7 @@ public  class UserController extends BaseController{
     }
 
     public void withCredentials(String userName, String pass){
-        user.setUserName(userName);
+        user.setUsername(userName);
         user.setPassword(pass);
     }
 
@@ -40,11 +42,21 @@ public  class UserController extends BaseController{
         String url = "http://10.0.2.2:8080/api/user/login";
         JSONObject parameter = new JSONObject();
         parameter.put("password", user.getPassword());
-        parameter.put("username", user.getUserName());
+        parameter.put("username", user.getUsername());
         System.out.println(parameter.toString());
         String mRequestBody = parameter.toString();
         JsonObjectRequest stringRequest = new JsonObjectRequest(Request.Method.POST, url, null,
-            response -> System.out.println("#################   "+response.toString())
+            response -> {
+                System.out.println("#################   "+response.toString());
+                try {
+                    System.out.println("#################   "+response.get("data").toString());
+                    Gson gson = new Gson();
+                    user = gson.fromJson(response.get("data").toString(), User.class);
+                    int a = 0;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
         , new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
