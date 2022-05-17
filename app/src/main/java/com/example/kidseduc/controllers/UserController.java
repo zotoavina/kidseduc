@@ -39,6 +39,13 @@ public  class UserController extends BaseController{
         user.setPassword(pass);
     }
 
+    public void setForRegister(String username, String pass, int age, String email){
+        user.setPassword(pass);
+        user.setUsername(username);
+        user.setAge(age);
+        user.setEmail(email);
+    }
+
     public String login()throws Exception{
         String url = "http://10.0.2.2:8080/api/user/login";
         JSONObject parameter = new JSONObject();
@@ -133,6 +140,8 @@ public  class UserController extends BaseController{
                 }
             }
         };
+        requestQueue = Volley.newRequestQueue(getContext());
+        requestQueue.add(request);
         return null;
     }
 

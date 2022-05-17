@@ -49,23 +49,22 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(RegisterActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
                 // récupération des données saisies
-                String user = "";
+                String name = "";
                 String mdp = "";
                 String eml = "";
                 int ag = 0;
                 try{
-                    user = username.getText().toString();
+                    name = username.getText().toString();
                     mdp = password.getText().toString();
                     eml = email.getText().toString();
                     ag = Integer.parseInt(age.getText().toString());
-                    System.out.println("******************************"+user);
-                    //userController.withCredentials(user, mdp);
-                   // userController.login();
+                    userController.setForRegister(name, mdp, ag, eml);
+                    userController.register();
                 }catch (Exception ex){
                     System.out.println(ex.getMessage());
                     Toast.makeText(RegisterActivity.this, "**************"+ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-                if(user.equals("") || mdp.equals("")){
+                if(name.equals("") || mdp.equals("")){
                     Toast.makeText(RegisterActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
                 }else{
                     startActivity(new Intent(RegisterActivity.this, MenuActivity.class));
