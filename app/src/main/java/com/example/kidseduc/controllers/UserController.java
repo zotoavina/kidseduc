@@ -102,8 +102,39 @@ public  class UserController extends BaseController{
     }
 
 
+    public String register()throws Exception{
+        String url =  "http://10.0.2.2:8080/api/user/register";
+        JSONObject parameter = new JSONObject();
+        parameter.put("password", user.getPassword());
+        parameter.put("username", user.getUsername());
+        parameter.put("age", user.getAge());
+        parameter.put("email", user.getEmail());
+        String requestBody = parameter.toString();
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null,
+                response ->  {
+                    System.out.println("register response ********* " + response.toString());
+                },
+                error -> {
+                    System.out.println("register response ********* " + error.toString());
+                }){
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
 
-
+            @Override
+            public byte[] getBody(){
+                try {
+                    Log.d("0000000000" , requestBody);
+                    return requestBody == null ? null : requestBody.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", requestBody, "utf-8");
+                    return null;
+                }
+            }
+        };
+        return null;
+    }
 
 
 }
