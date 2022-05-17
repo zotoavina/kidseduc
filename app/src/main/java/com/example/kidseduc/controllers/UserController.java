@@ -119,7 +119,17 @@ public  class UserController extends BaseController{
         String requestBody = parameter.toString();
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null,
                 response ->  {
-                    System.out.println("register response ********* " + response.toString());
+                    ResponseFormat<User> responseFormat =new  ResponseFormat<>();
+                    try {
+                        System.out.println("#################   "+response.get("data").toString());
+                        responseFormat.fromJson(response, User.class);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(responseFormat.ok())
+                        System.out.println("redirection menu");
+                    else
+                        System.out.println("error");
                 },
                 error -> {
                     System.out.println("register response ********* " + error.toString());
