@@ -20,6 +20,7 @@ import com.example.kidseduc.databinding.ActivityNavbarBinding;
 import com.example.kidseduc.ui.dashboard.DashboardFragment;
 import com.example.kidseduc.ui.home.HomeFragment;
 import com.example.kidseduc.ui.notifications.NotificationsFragment;
+import com.example.kidseduc.views.MenuActivity;
 
 public class NavbarActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
@@ -30,7 +31,7 @@ public class NavbarActivity extends AppCompatActivity implements BottomNavigatio
         setContentView(R.layout.activity_navbar);
 
         //loading the default fragment
-        loadFragment(new HomeFragment());
+        loadFragment(new MenuActivity());
 
         //getting bottom navigation view and attaching the listener
         BottomNavigationView navigation = findViewById(R.id.nav_view);
@@ -69,7 +70,7 @@ public class NavbarActivity extends AppCompatActivity implements BottomNavigatio
         Log.d("item","***************"+item.getItemId());
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                fragment = new HomeFragment();
+                fragment = new MenuActivity();
                 break;
 
             case R.id.navigation_dashboard:
@@ -77,7 +78,7 @@ public class NavbarActivity extends AppCompatActivity implements BottomNavigatio
                 break;
 
             case R.id.navigation_notifications:
-                fragment = new NotificationsFragment();
+                fragment = new ProfilFragment();
                 break;
         }
         return loadFragment(fragment);

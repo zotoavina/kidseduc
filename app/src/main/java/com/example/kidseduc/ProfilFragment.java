@@ -1,16 +1,17 @@
-package com.example.kidseduc.views;
+package com.example.kidseduc;
 
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.kidseduc.R;
-
-public class MenuActivity extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * create an instance of this fragment.
+ */
+public class ProfilFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -18,7 +19,6 @@ public class MenuActivity extends Fragment {
         //with the fragment you want to inflate
         //like if the class is HomeFragment it should have R.layout.home_fragment
         //if it is DashboardFragment it should have R.layout.fragment_dashboard
-        return inflater.inflate(R.layout.activity_menu, null);
+        return inflater.inflate(R.layout.fragment_profil, null);
     }
-
 }
