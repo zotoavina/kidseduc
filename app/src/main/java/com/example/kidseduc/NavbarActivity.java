@@ -1,11 +1,13 @@
 package com.example.kidseduc;
 
 import android.os.Bundle;
+import android.support.annotation.LongDef;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 
 
@@ -21,7 +23,6 @@ import com.example.kidseduc.ui.notifications.NotificationsFragment;
 
 public class NavbarActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
-    private ActivityNavbarBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class NavbarActivity extends AppCompatActivity implements BottomNavigatio
 
         //getting bottom navigation view and attaching the listener
         BottomNavigationView navigation = findViewById(R.id.nav_view);
-        navigation.setOnNavigationItemSelectedListener((BottomNavigationView.OnNavigationItemSelectedListener) NavbarActivity.this);
+        navigation.setOnNavigationItemSelectedListener(this);
 
 //        binding = ActivityNavbarBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
@@ -65,7 +66,7 @@ public class NavbarActivity extends AppCompatActivity implements BottomNavigatio
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment fragment = null;
-
+        Log.d("item","***************"+item.getItemId());
         switch (item.getItemId()) {
             case R.id.navigation_home:
                 fragment = new HomeFragment();
@@ -78,9 +79,7 @@ public class NavbarActivity extends AppCompatActivity implements BottomNavigatio
             case R.id.navigation_notifications:
                 fragment = new NotificationsFragment();
                 break;
-
         }
-
         return loadFragment(fragment);
     }
 }

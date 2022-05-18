@@ -27,7 +27,7 @@ public class DashboardFragment extends Fragment {
 //        final TextView textView = binding.textDashboard;
 //        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 //        return root;
-        return inflater.inflate(R.layout.fragment_home, null);
+        return inflater.inflate(R.layout.fragment_dashboard, null);
     }
 
 //    @Override
