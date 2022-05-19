@@ -16,19 +16,21 @@
         android:theme="@style/Theme.Kidseduc"
         tools:targetApi="31">
         <activity
-            android:name=".views.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NavbarActivity"
-            android:exported="true"
-            android:label="@string/title_activity_navbar">
+            android:name=".views.PictureActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".views.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NavbarActivity"
+            android:exported="true"
+            android:label="@string/title_activity_navbar"/>
         <activity
             android:name=".views.MenuActivity"
             android:exported="false" />
@@ -38,8 +40,7 @@
         <activity
             android:name=".views.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.Splash">
-        </activity>
+            android:theme="@style/Theme.Splash"></activity>
         <activity
             android:name=".views.MainActivity"
             android:exported="true" />
