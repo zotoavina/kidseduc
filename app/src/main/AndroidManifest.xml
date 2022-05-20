@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Kidseduc"
         tools:targetApi="31">
         <activity
-            android:name=".views.VideoActivity"
+            android:name=".views.HtmlActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +25,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.PictureActivity"
+            android:name=".views.VideoActivity"
             android:exported="true"/>
+        <activity
+            android:name=".views.PictureActivity"
+            android:exported="true" />
         <activity
             android:name=".views.RegisterActivity"
             android:exported="false" />
