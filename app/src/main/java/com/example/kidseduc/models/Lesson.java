@@ -1,6 +1,14 @@
 package com.example.kidseduc.models;
 
 public class Lesson extends BaseModal{
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     private String title;
     private String type;
     private String content;
