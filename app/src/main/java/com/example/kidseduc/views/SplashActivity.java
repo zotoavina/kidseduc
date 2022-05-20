@@ -20,9 +20,7 @@ public class SplashActivity extends AppCompatActivity {
                         sleep(150);
                         delay = delay + 100;
                     }
-                    //startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                    startActivity(new Intent(SplashActivity.this, RegisterActivity.class));
-
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {

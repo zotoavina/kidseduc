@@ -19,6 +19,9 @@
             android:name=".views.HtmlActivity"
             android:exported="true"/>
         <activity
+            android:name=".views.LessonListActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.VideoActivity"
             android:exported="true"/>
         <activity

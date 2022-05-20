@@ -6,7 +6,6 @@ public class Lesson extends BaseModal{
     private String content;
     private String description;
 
-    public Lesson(String les_chiens, String picture, String url){}
     public Lesson(String title, String type, String content, String description) {
         this.title = title;
         this.type = type;
@@ -14,12 +13,12 @@ public class Lesson extends BaseModal{
         this.description = description;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getType() {
