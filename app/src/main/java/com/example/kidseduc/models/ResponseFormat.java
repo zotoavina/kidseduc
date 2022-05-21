@@ -9,6 +9,7 @@ import com.google.gson.JsonParseException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 
 public class ResponseFormat <T extends BaseModal>{

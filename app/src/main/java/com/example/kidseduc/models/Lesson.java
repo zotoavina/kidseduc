@@ -1,6 +1,8 @@
 package com.example.kidseduc.models;
 
-public class Lesson extends BaseModal{
+import java.io.Serializable;
+
+public class Lesson extends BaseModal implements Serializable {
     public String getTitle() {
         return title;
     }
@@ -46,7 +48,7 @@ public class Lesson extends BaseModal{
     }
 
     public Boolean isPicture(){
-        return this.type.compareToIgnoreCase("picture") == 0;
+        return this.type.compareToIgnoreCase("image") == 0;
     }
 
     public Boolean isVideo(){
@@ -54,6 +56,6 @@ public class Lesson extends BaseModal{
     }
 
     public Boolean isWeb(){
-        return this.type.compareToIgnoreCase("web") == 0;
+        return this.type.compareToIgnoreCase("html") == 0;
     }
 }

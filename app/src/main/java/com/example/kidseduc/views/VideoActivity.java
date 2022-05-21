@@ -15,11 +15,12 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
 
     YouTubePlayerView video;
     String apiKey = "AIzaSyC3HuCKe17Qr7oMIfA58Bm16OsDWSG3UeI";
-    String videoId = "eA5jSbKd5cM"  ; //id du video dans youtube
-    private Lesson lesson = new Lesson("Video","video",videoId,"");
+    private Lesson lesson ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        lesson = (Lesson) getIntent().getSerializableExtra("LESSON");
         setContentView(R.layout.activity_video);
         video = (YouTubePlayerView) findViewById(R.id.video);
         video.initialize(apiKey, this);
@@ -28,7 +29,7 @@ public class VideoActivity extends YouTubeBaseActivity implements YouTubePlayer.
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean wasRestored) {
         if(!wasRestored){
-            youTubePlayer.cueVideo("eA5jSbKd5cM",1);
+            youTubePlayer.cueVideo(lesson.getContent(),1);
             youTubePlayer.play();
         }
     }

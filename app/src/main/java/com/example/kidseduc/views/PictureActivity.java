@@ -19,13 +19,14 @@ public class PictureActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        lesson = (Lesson) getIntent().getSerializableExtra("LESSON");
         setContentView(R.layout.activity_picture);
 
         url="https://cdn.futura-sciences.com/buildsv6/images/wide1920/8/5/8/858743bb35_50169458_chien-min.jpg";
          //url = "https://www.santevet.com/upload/admin/images/article/chien2_2/chiot/noms_de_chiens_en_2021.jpg";
         picture = findViewById(R.id.picture);
         //Glide.with(this).load(this.lesson.getContent()).into(picture);
-        Glide.with(this).load(url).into(picture);
+        Glide.with(this).load(lesson.getContent()).into(picture);
     }
 
     public void setLesson(Lesson lesson) {
