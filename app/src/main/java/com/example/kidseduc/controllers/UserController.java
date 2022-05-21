@@ -58,7 +58,6 @@ public  class UserController extends BaseController{
                 System.out.println("#################   "+response.toString());
                 try {
                     System.out.println("#################   "+response.get("data").toString());
-                    Gson gson = new Gson();
                     ResponseFormat<User> responseFormat =new  ResponseFormat<>();
                     responseFormat.fromJson(response, User.class);
                     if(responseFormat.ok())

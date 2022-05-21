@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.kidseduc.R;
+import com.example.kidseduc.controllers.LessonController;
 import com.example.kidseduc.models.Lesson;
 import com.example.kidseduc.utils.LessonListAdapter;
 
@@ -17,15 +18,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LessonListActivity extends AppCompatActivity {
+    private LessonController lessonController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_list);
+        try{
+            init();
+            int a = 0;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
-        List<Lesson> image_details = getListData();
+    }
+
+    private void init()throws Exception{
+        lessonController = LessonController.getLessonController();
+        lessonController.setContext(this);
+        lessonController.getLessonList();
+    }
+
+    public void showList(){
         final ListView listView = (ListView) findViewById(R.id.lesson_list);
-        listView.setAdapter(new LessonListAdapter(this, image_details));
+        listView.setAdapter(new LessonListAdapter(this, lessonController.getLessons()));
 
         // When the user clicks on the ListItem
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,6 +66,7 @@ public class LessonListActivity extends AppCompatActivity {
             }
         });
     }
+
     private List<Lesson> getListData() {
         List<Lesson> list = new ArrayList<Lesson>();
         Lesson chiffres = new Lesson("Les Chiffres", "image", " 1,2,3,4,5,6,7,...","blablabla");

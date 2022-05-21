@@ -11,10 +11,13 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResponseFormat <T extends BaseModal>{
     private int code;
     private T data;
+    private List<T> listData;
     private String message;
 
     public int getCode() {
@@ -46,6 +49,22 @@ public class ResponseFormat <T extends BaseModal>{
         setCode(jsonObject.getInt("code"));
         setMessage(jsonObject.getString("message"));
         setData( gson.fromJson(jsonObject.get("data").toString(), typeOfT ));
+    }
+
+    public void listFromJson(JSONObject jsonObject, Type typeOfT)throws JsonParseException, JSONException{
+        Gson gson = new Gson();
+        gson.toJson(listData, typeOfT);
+        setCode(jsonObject.getInt("code"));
+        setMessage(jsonObject.getString("message"));
+        listData = gson.fromJson(jsonObject.get("data").toString(), typeOfT );
+    }
+
+    public List<T> getListData() {
+        return listData;
+    }
+
+    public void setListData(List<T> listData) {
+        this.listData = listData;
     }
 
     public boolean ok(){
