@@ -13,14 +13,19 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kidseduc.NavbarActivity;
 import com.example.kidseduc.R;
 import com.example.kidseduc.controllers.UserController;
+
+import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
+    private Button loginButton;
     private UserController userController;
+    private TextView registerRedirection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         init();
         loginListener();
+        registerListener();
     }
 
     /**
@@ -36,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     private void init(){
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
+        loginButton = (Button) findViewById(R.id.login);
+        registerRedirection = (TextView) findViewById(R.id.register_redirection);
         userController = UserController.getUserController();
         userController.setContext(this);
     }
@@ -44,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
      * Ecoute évènement sur le boutton login
      */
     private void loginListener(){
-        ( (Button) findViewById(R.id.login)).setOnClickListener(new Button.OnClickListener(){
+        loginButton.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View view) {
                 // récupération des données saisies
@@ -54,17 +62,26 @@ public class LoginActivity extends AppCompatActivity {
                     user = username.getText().toString();
                     mdp = password.getText().toString();
                     System.out.println("******************************"+user);
+                    if(user.equals("") || mdp.equals("")) Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
                     userController.withCredentials(user, mdp);
                     userController.login();
                 }catch (Exception ex){
                     System.out.println(ex.getMessage());
                     Toast.makeText(LoginActivity.this, "**************"+ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-                if(user.equals("") || mdp.equals("")){
-                    Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
-                }else{
-                    startActivity(new Intent(LoginActivity.this, MenuActivity.class));
-                }
+            }
+        });
+    }
+
+    public void moveToMenu(){
+        startActivity(new Intent(LoginActivity.this, NavbarActivity.class));
+    }
+
+    private void registerListener(){
+        registerRedirection.setOnClickListener(new TextView.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
     }

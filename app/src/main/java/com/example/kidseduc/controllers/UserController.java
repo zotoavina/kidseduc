@@ -1,5 +1,6 @@
 package com.example.kidseduc.controllers;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.android.volley.NetworkResponse;
@@ -14,6 +15,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kidseduc.models.ResponseFormat;
 import com.example.kidseduc.models.User;
+import com.example.kidseduc.views.LoginActivity;
+import com.example.kidseduc.views.MenuActivity;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -60,8 +63,9 @@ public  class UserController extends BaseController{
                     System.out.println("#################   "+response.get("data").toString());
                     ResponseFormat<User> responseFormat =new  ResponseFormat<>();
                     responseFormat.fromJson(response, User.class);
-                    if(responseFormat.ok())
-                        System.out.println("redirection menu");
+                    if(responseFormat.ok()){
+                         ((LoginActivity)getContext()).moveToMenu();
+                    }
                     else
                         System.out.println("error");
                     int a = 0;
