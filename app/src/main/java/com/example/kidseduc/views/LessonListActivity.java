@@ -1,5 +1,6 @@
 package com.example.kidseduc.views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.example.kidseduc.R;
 import com.example.kidseduc.models.Lesson;
 import com.example.kidseduc.utils.LessonListAdapter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,15 +34,27 @@ public class LessonListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = listView.getItemAtPosition(position);
                 Lesson lesson = (Lesson) o;
+                Intent intent = new Intent(LessonListActivity.this, LoginActivity.class);
+                if(lesson.isPicture()){
+                    intent = new Intent(LessonListActivity.this, PictureActivity.class);
+                }
+                if(lesson.isVideo()){
+                    intent = new Intent(LessonListActivity.this, VideoActivity.class);
+                }
+                if(lesson.isWeb()){
+                    intent = new Intent(LessonListActivity.this, HtmlActivity.class);
+                }
+                intent.putExtra("LESSON",(Serializable) lesson);
+                startActivity(intent);
                 Toast.makeText(LessonListActivity.this, "Selected :" + " " + lesson, Toast.LENGTH_LONG).show();
             }
         });
     }
     private List<Lesson> getListData() {
         List<Lesson> list = new ArrayList<Lesson>();
-        Lesson chiffres = new Lesson("Les Chiffres", " 1,2,3,4,5,6,7,...", "image","blablabla");
-        Lesson couleurs = new Lesson("Les couleurs", "rouge, vert, bleu", "video","blablbla");
-        Lesson pays = new Lesson("Les pays", "Madagascar, France,...", "html", "blablblabl");
+        Lesson chiffres = new Lesson("Les Chiffres", "image", " 1,2,3,4,5,6,7,...","blablabla");
+        Lesson couleurs = new Lesson("Les couleurs", "video", "rouge, vert, bleu","blablbla");
+        Lesson pays = new Lesson("Les pays","html",  "Madagascar, France,...", "blablblabl");
 
         list.add(chiffres);
         list.add(couleurs);

@@ -1,6 +1,8 @@
 package com.example.kidseduc.models;
 
-public abstract class BaseModal {
+import java.io.Serializable;
+
+public abstract class BaseModal implements Serializable {
     protected String id;
 
     public String getId() {

@@ -1,6 +1,8 @@
 package com.example.kidseduc.models;
 
-public class User extends BaseModal{
+import java.io.Serializable;
+
+public class User extends BaseModal implements Serializable {
     private String username;
     private String password;
     private String email;
