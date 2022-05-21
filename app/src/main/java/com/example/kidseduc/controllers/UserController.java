@@ -49,7 +49,8 @@ public  class UserController extends BaseController{
         user.setEmail(email);
     }
 
-    public String login()throws Exception{
+    public String
+    login()throws Exception{
         String url = "http://10.0.2.2:8080/api/user/login";
         JSONObject parameter = new JSONObject();
         parameter.put("password", user.getPassword());

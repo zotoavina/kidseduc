@@ -7,6 +7,15 @@ public class User extends BaseModal implements Serializable {
     private String password;
     private String email;
     private int age;
+    private int sex;
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
 
     public String getEmail() {
         return email;
