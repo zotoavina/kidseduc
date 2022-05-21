@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kidseduc.R;
@@ -17,6 +18,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText password;
     private EditText email;
     private EditText age;
+    private TextView loginRedirection;
     private UserController userController;
 
     @Override
@@ -25,6 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         init();
         registerListener();
+        loginListener();
     }
 
     /**
@@ -35,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.reg_passsword);
         email = (EditText) findViewById(R.id.reg_email);
         age = (EditText) findViewById(R.id.reg_age);
+        loginRedirection = (TextView) findViewById(R.id.login_redirection);
         userController = UserController.getUserController();
         userController.setContext(this);
     }
@@ -69,6 +73,15 @@ public class RegisterActivity extends AppCompatActivity {
                 }else{
                     startActivity(new Intent(RegisterActivity.this, MenuActivity.class));
                 }
+            }
+        });
+    }
+
+    private void loginListener(){
+        loginRedirection.setOnClickListener(new TextView.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
     }

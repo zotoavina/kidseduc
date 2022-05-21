@@ -20,13 +20,7 @@
             android:exported="true"/>
         <activity
             android:name=".views.LessonListActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".views.VideoActivity"
             android:exported="true"/>
@@ -42,7 +36,13 @@
             android:label="@string/title_activity_navbar" />
         <activity
             android:name=".views.LoginActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".views.SplashActivity"
             android:exported="true"

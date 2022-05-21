@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FBE839"
+        android:background="#F8D0DE"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -187,8 +187,23 @@
                         android:backgroundTint="#9D5AA8"
                         android:fontFamily="sans-serif"
                         android:soundEffectsEnabled="false"
-                        android:text="Button"
+                        android:text="Register"
                         android:textColor="#F3EFEF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/login_redirection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="I already have account"
+                        android:textAlignment="center"
+                        android:textColor="#03A9F4" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
