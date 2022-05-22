@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kidseduc.NavbarActivity;
 import com.example.kidseduc.R;
 import com.example.kidseduc.controllers.UserController;
 
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         init();
         registerListener();
         loginListener();
+
     }
 
     /**
@@ -68,13 +70,11 @@ public class RegisterActivity extends AppCompatActivity {
                     System.out.println(ex.getMessage());
                     Toast.makeText(RegisterActivity.this, "**************"+ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-                if(name.equals("") || mdp.equals("")){
-                    Toast.makeText(RegisterActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
-                }else{
-                    startActivity(new Intent(RegisterActivity.this, MenuActivity.class));
-                }
             }
         });
+    }
+    public void moveToMenu(){
+        startActivity(new Intent(RegisterActivity.this, NavbarActivity.class));
     }
 
     private void loginListener(){
