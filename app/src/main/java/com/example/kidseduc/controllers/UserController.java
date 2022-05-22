@@ -38,6 +38,10 @@ public  class UserController extends BaseController{
 
     }
 
+    public void setUser(User user){
+        this.user = user;
+    }
+
     public void withCredentials(String userName, String pass){
         user.setUsername(userName);
         user.setPassword(pass);
@@ -66,7 +70,10 @@ public  class UserController extends BaseController{
                     System.out.println("#################   "+response.get("data").toString());
                     ResponseFormat<User> responseFormat =new  ResponseFormat<>();
                     responseFormat.fromJson(response, User.class);
-                    if(responseFormat.ok()) ((LoginActivity)getContext()).moveToMenu();
+                    if(responseFormat.ok()){
+                        setUser( responseFormat.getData() );
+                        ((LoginActivity)getContext()).moveToMenu();
+                    }
                     else ((LoginActivity)getContext()).toastInformation();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -126,7 +133,10 @@ public  class UserController extends BaseController{
                     try {
                         System.out.println("#################   "+response.get("data").toString());
                         responseFormat.fromJson(response, User.class);
-                        if(responseFormat.ok()) ((RegisterActivity)getContext()).moveToMenu();
+                        if(responseFormat.ok()){
+                            setUser( responseFormat.getData() );
+                            ((RegisterActivity)getContext()).moveToMenu();
+                        }
                         else ((RegisterActivity)getContext()).toastInformation();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -154,6 +164,22 @@ public  class UserController extends BaseController{
         requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(request);
         return null;
+    }
+
+    public String getName(){
+        return user.getUsername();
+    }
+
+    public String getEmail(){
+        return user.getEmail();
+    }
+
+    public int getAge(){
+        return user.getAge();
+    }
+
+    public int getGender(){
+        return user.getGender();
     }
 
 

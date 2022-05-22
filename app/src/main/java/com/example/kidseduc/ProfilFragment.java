@@ -21,8 +21,10 @@ import com.example.kidseduc.utils.LessonListAdapter;
  * create an instance of this fragment.
  */
 public class ProfilFragment extends Fragment {
-    private User user ;
     private UserController userController;
+    private TextView name;
+    private TextView age;
+    private TextView email;
 
     @Nullable
     @Override
@@ -30,14 +32,28 @@ public class ProfilFragment extends Fragment {
         userController = UserController.getUserController();
         View view =  inflater.inflate(R.layout.fragment_profil, null);
         view.setBackgroundColor(34);
+        init(view);
         return view;
     }
 
     private View setStyleBySex(View view){
         view.setBackgroundColor(18);
-        if(user.getGender()==0){
+        if(userController.getGender()==0){
             view.setBackgroundColor(365);
         }
         return view;
+    }
+
+    private void init(View view){
+        name = (TextView) view.findViewById(R.id.profil_name);
+        age = (TextView) view.findViewById(R.id.profil_age);
+        email = (TextView) view.findViewById(R.id.profil_email);
+        bindProfilInformation();
+    }
+
+    private void bindProfilInformation(){
+        name.setText( userController.getName() );
+        email.setText( userController.getEmail());
+        age.setText( userController.getAge() + "");
     }
 }
