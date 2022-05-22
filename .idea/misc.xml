@@ -16,19 +16,24 @@
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_lesson_list.xml" value="0.18" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_main2.xml" value="0.16576086956521738" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_menu.xml" value="0.14427860696517414" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_navbar.xml" value="0.1" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_picture.xml" value="0.1852355072463768" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_settings.xml" value="0.16576086956521738" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/activity_video.xml" value="0.18645833333333334" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/fragment_home.xml" value="0.18645833333333334" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/fragment_homenav.xml" value="0.1" />
+        <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/fragment_notications.xml" value="0.16576086956521738" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/fragment_notifications.xml" value="0.18645833333333334" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/fragment_profil.xml" value="0.18" />
+        <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/fragment_settings.xml" value="0.16576086956521738" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/layout/splashscreen.xml" value="0.12092391304347826" />
         <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="..\:/ITU/M1/Mobile/projet/kidseduc.git/app/src/main/res/xml/preference.xml" value="0.1" />
       </map>
     </option>
   </component>
