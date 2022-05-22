@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                         return;
                     }
                     userController.withCredentials(user, mdp);
-                    userController.login();
+                    userController.login( getString(R.string.app_api)+ getString(R.string.app_api_login));
                 }catch (Exception ex){
                     System.out.println(ex.getMessage());
                     Toast.makeText(LoginActivity.this, "**************"+ex.getMessage(), Toast.LENGTH_SHORT).show();

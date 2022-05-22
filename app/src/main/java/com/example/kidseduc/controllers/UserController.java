@@ -13,6 +13,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kidseduc.R;
 import com.example.kidseduc.models.ResponseFormat;
 import com.example.kidseduc.models.User;
 import com.example.kidseduc.views.LoginActivity;
@@ -47,17 +48,16 @@ public  class UserController extends BaseController{
         user.setPassword(pass);
     }
 
-    public void setForRegister(String username, String pass, int age, String email){
+    public void setForRegister(String username, String pass, int age, String email, int gender){
         user.setPassword(pass);
         user.setUsername(username);
         user.setAge(age);
         user.setEmail(email);
-        user.setGender(1);
+        user.setGender(gender);
     }
 
     public String
-    login()throws Exception{
-        String url = "http://10.0.2.2:8080/api/user/login";
+    login(String url)throws Exception{
         JSONObject parameter = new JSONObject();
         parameter.put("password", user.getPassword());
         parameter.put("username", user.getUsername());
@@ -118,8 +118,7 @@ public  class UserController extends BaseController{
     }
 
 
-    public String register()throws Exception{
-        String url =  "http://10.0.2.2:8080/api/user/register";
+    public String register(String url)throws Exception{
         JSONObject parameter = new JSONObject();
         parameter.put("password", user.getPassword());
         parameter.put("username", user.getUsername());
