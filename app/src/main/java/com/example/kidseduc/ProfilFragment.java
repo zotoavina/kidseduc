@@ -37,9 +37,12 @@ public class ProfilFragment extends Fragment {
     }
 
     private View setStyleBySex(View view){
-        view.setBackgroundColor(18);
-        if(userController.getGender()==0){
-            view.setBackgroundColor(365);
+        view.setBackgroundColor(0xFFF4CFB7);
+        ImageView image = view.findViewById(R.id.profil_image);
+        image.setImageResource(R.drawable.girl);
+        if(userController.getGender()==1){
+            view.setBackgroundColor(0xFF6AB3E1);
+            image.setImageResource(R.drawable.boy);
         }
         return view;
     }
@@ -48,12 +51,13 @@ public class ProfilFragment extends Fragment {
         name = (TextView) view.findViewById(R.id.profil_name);
         age = (TextView) view.findViewById(R.id.profil_age);
         email = (TextView) view.findViewById(R.id.profil_email);
+        setStyleBySex(view);
         bindProfilInformation();
     }
 
     private void bindProfilInformation(){
-        name.setText( userController.getName() );
-        email.setText( userController.getEmail());
-        age.setText( userController.getAge() + "");
+        name.setText( "Name: "+userController.getName() );
+        email.setText( "Email: "+userController.getEmail());
+        age.setText( "Age: "+userController.getAge() + "");
     }
 }
