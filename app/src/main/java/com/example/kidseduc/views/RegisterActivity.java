@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.kidseduc.NavbarActivity;
 import com.example.kidseduc.R;
 import com.example.kidseduc.controllers.UserController;
 
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
         init();
         registerListener();
         loginListener();
+
     }
 
     /**
@@ -52,29 +54,18 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(RegisterActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
-                // récupération des données saisies
-                String name = "";
-                String mdp = "";
-                String eml = "";
-                int ag = 0;
                 try{
-                    name = username.getText().toString();
-                    mdp = password.getText().toString();
-                    eml = email.getText().toString();
-                    ag = Integer.parseInt(age.getText().toString());
-                    userController.setForRegister(name, mdp, ag, eml);
+                    checkInput();
                     userController.register();
                 }catch (Exception ex){
                     System.out.println(ex.getMessage());
                     Toast.makeText(RegisterActivity.this, "**************"+ex.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-                if(name.equals("") || mdp.equals("")){
-                    Toast.makeText(RegisterActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
-                }else{
-                    startActivity(new Intent(RegisterActivity.this, MenuActivity.class));
-                }
             }
         });
+    }
+    public void moveToMenu(){
+        startActivity(new Intent(RegisterActivity.this, NavbarActivity.class));
     }
 
     private void loginListener(){
@@ -85,4 +76,27 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void checkInput(){
+        String name = username.getText().toString();
+        String mdp = password.getText().toString();
+        String eml = email.getText().toString();
+        int ag = 0;
+        if(name.equals("") || mdp.equals("") || eml.equals("")){
+            Toast.makeText(RegisterActivity.this, "Incorrect information", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        try{
+            ag = Integer.parseInt(age.getText().toString());
+        }catch (Exception e){
+            Toast.makeText(RegisterActivity.this, "Incorrect information", Toast.LENGTH_SHORT).show();
+        }
+        userController.setForRegister(name, mdp, ag, eml);
+    }
+
+    public void toastInformation(){
+        Toast.makeText(RegisterActivity.this, "An error occured during the registration", Toast.LENGTH_SHORT).show();
+    }
+
+
 }

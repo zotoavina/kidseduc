@@ -17,6 +17,7 @@ import com.example.kidseduc.models.ResponseFormat;
 import com.example.kidseduc.models.User;
 import com.example.kidseduc.views.LoginActivity;
 import com.example.kidseduc.views.MenuActivity;
+import com.example.kidseduc.views.RegisterActivity;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -47,6 +48,7 @@ public  class UserController extends BaseController{
         user.setUsername(username);
         user.setAge(age);
         user.setEmail(email);
+        user.setGender(1);
     }
 
     public String
@@ -64,12 +66,8 @@ public  class UserController extends BaseController{
                     System.out.println("#################   "+response.get("data").toString());
                     ResponseFormat<User> responseFormat =new  ResponseFormat<>();
                     responseFormat.fromJson(response, User.class);
-                    if(responseFormat.ok()){
-                         ((LoginActivity)getContext()).moveToMenu();
-                    }
-                    else
-                        System.out.println("error");
-                    int a = 0;
+                    if(responseFormat.ok()) ((LoginActivity)getContext()).moveToMenu();
+                    else ((LoginActivity)getContext()).toastInformation();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -120,6 +118,7 @@ public  class UserController extends BaseController{
         parameter.put("username", user.getUsername());
         parameter.put("age", user.getAge());
         parameter.put("email", user.getEmail());
+        parameter.put("gender", user.getGender());
         String requestBody = parameter.toString();
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null,
                 response ->  {
@@ -127,13 +126,11 @@ public  class UserController extends BaseController{
                     try {
                         System.out.println("#################   "+response.get("data").toString());
                         responseFormat.fromJson(response, User.class);
+                        if(responseFormat.ok()) ((RegisterActivity)getContext()).moveToMenu();
+                        else ((RegisterActivity)getContext()).toastInformation();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    if(responseFormat.ok())
-                        System.out.println("redirection menu");
-                    else
-                        System.out.println("error");
                 },
                 error -> {
                     System.out.println("register response ********* " + error.toString());

@@ -35,7 +35,7 @@ public class ProfilFragment extends Fragment {
 
     private View setStyleBySex(View view){
         view.setBackgroundColor(18);
-        if(user.getSex()==0){
+        if(user.getGender()==0){
             view.setBackgroundColor(365);
         }
         return view;
