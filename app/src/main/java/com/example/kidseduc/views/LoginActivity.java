@@ -62,7 +62,10 @@ public class LoginActivity extends AppCompatActivity {
                     user = username.getText().toString();
                     mdp = password.getText().toString();
                     System.out.println("******************************"+user);
-                    if(user.equals("") || mdp.equals("")) Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
+                    if(user.equals("") || mdp.equals("")){
+                        Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     userController.withCredentials(user, mdp);
                     userController.login();
                 }catch (Exception ex){
@@ -84,6 +87,10 @@ public class LoginActivity extends AppCompatActivity {
                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
+    }
+
+    public void toastInformation(){
+        Toast.makeText(LoginActivity.this, "Incorrect username or password", Toast.LENGTH_SHORT).show();
     }
 
 }

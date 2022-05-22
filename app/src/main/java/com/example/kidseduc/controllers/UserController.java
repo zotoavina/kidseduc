@@ -65,12 +65,8 @@ public  class UserController extends BaseController{
                     System.out.println("#################   "+response.get("data").toString());
                     ResponseFormat<User> responseFormat =new  ResponseFormat<>();
                     responseFormat.fromJson(response, User.class);
-                    if(responseFormat.ok()){
-                         ((LoginActivity)getContext()).moveToMenu();
-                    }
-                    else
-                        System.out.println("error");
-                    int a = 0;
+                    if(responseFormat.ok()) ((LoginActivity)getContext()).moveToMenu();
+                    else ((LoginActivity)getContext()).toastInformation();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -129,9 +125,8 @@ public  class UserController extends BaseController{
                     try {
                         System.out.println("#################   "+response.get("data").toString());
                         responseFormat.fromJson(response, User.class);
-                        if(responseFormat.ok()){
-                            ((RegisterActivity)getContext()).moveToMenu();
-                        }
+                        if(responseFormat.ok()) ((RegisterActivity)getContext()).moveToMenu();
+                        else ((RegisterActivity)getContext()).toastInformation();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
