@@ -154,7 +154,7 @@
                         android:id="@+id/register_redirection"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="I already have account"
+                        android:text="I don't have an account"
                         android:textAlignment="center"
                         android:textColor="#03A9F4" />
                 </LinearLayout>
