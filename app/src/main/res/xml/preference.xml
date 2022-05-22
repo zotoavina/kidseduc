@@ -16,8 +16,8 @@
         android:summary="Click to show a text entry dialog"
         android:title="EditText Preference" />
     <SwitchPreference
-        android:key="switch"
-        android:title="Switch Preference"
+        android:key="notification"
+        android:title="Allow notification"
         android:summary="Click to switch on or off"
         android:defaultValue="true"/>
 </PreferenceScreen>
