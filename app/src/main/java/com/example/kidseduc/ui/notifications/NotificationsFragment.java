@@ -4,13 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.arch.lifecycle.ViewModelProvider;
 
 import com.example.kidseduc.R;
-import com.example.kidseduc.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
 
@@ -27,7 +24,7 @@ public class NotificationsFragment extends Fragment {
 //        final TextView textView = binding.textNotifications;
 //        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 //        return root;
-        return inflater.inflate(R.layout.fragment_notifications,null);
+        return inflater.inflate(R.layout.fragment_notications,null);
     }
 
 //    @Override

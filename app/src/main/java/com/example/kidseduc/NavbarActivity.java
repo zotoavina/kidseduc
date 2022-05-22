@@ -1,26 +1,16 @@
 package com.example.kidseduc;
 
 import android.os.Bundle;
-import android.support.annotation.LongDef;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.kidseduc.databinding.ActivityNavbarBinding;
-import com.example.kidseduc.ui.dashboard.DashboardFragment;
-import com.example.kidseduc.ui.home.HomeFragment;
-import com.example.kidseduc.ui.notifications.NotificationsFragment;
 import com.example.kidseduc.views.MenuActivity;
+import com.example.kidseduc.views.SettingsFragment;
 
 public class NavbarActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
@@ -73,12 +63,12 @@ public class NavbarActivity extends AppCompatActivity implements BottomNavigatio
                 fragment = new MenuActivity();
                 break;
 
-            case R.id.navigation_dashboard:
-                fragment = new DashboardFragment();
+            case R.id.navigation_profil:
+                fragment = new ProfilFragment();
                 break;
 
-            case R.id.navigation_notifications:
-                fragment = new ProfilFragment();
+            case R.id.navigation_settings:
+                fragment = new SettingsFragment();
                 break;
         }
         return loadFragment(fragment);
