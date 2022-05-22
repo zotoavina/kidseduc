@@ -40,7 +40,7 @@ public class ProfilFragment extends Fragment {
         view.setBackgroundColor(0xFFF4CFB7);
         ImageView image = view.findViewById(R.id.profil_image);
         image.setImageResource(R.drawable.girl);
-        if(userController.getGender()==1){
+        if(userController.getGender()==0){
             view.setBackgroundColor(0xFF6AB3E1);
             image.setImageResource(R.drawable.boy);
         }

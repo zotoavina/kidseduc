@@ -170,7 +170,42 @@
                         android:layout_weight="2"
                         android:ems="10"
                         android:inputType="textPassword"
-                        android:textSize="24sp" />
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/genre"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/boy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="48dp"
+                            android:text="Boy"
+                            android:textSize="24sp" />
+
+                        <RadioButton
+                            android:id="@+id/girl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="48dp"
+                            android:text="Girl"
+                            android:textSize="24sp"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </RadioGroup>
+
                 </LinearLayout>
 
                 <LinearLayout
