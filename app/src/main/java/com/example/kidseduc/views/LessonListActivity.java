@@ -26,11 +26,9 @@ public class LessonListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lesson_list);
         try{
             init();
-            int a = 0;
         }catch(Exception e){
             e.printStackTrace();
         }
-
     }
 
     private void init()throws Exception{

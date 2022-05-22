@@ -21,5 +21,6 @@
         android:id="@+id/navigation_settings"
         android:name="com.example.kidseduc."
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notications" />
+        tools:layout="@xml/preference" />
+    <!--Global action-->
 </navigation>
