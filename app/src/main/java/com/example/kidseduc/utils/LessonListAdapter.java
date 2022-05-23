@@ -59,7 +59,6 @@ public class LessonListAdapter extends BaseAdapter {
         holder.lessonDescription.setText("Description: " + lesson.getDescription());
 
         int imageId = this.getMipmapResIdByName(lesson.getType());
-
         holder.lessonImage.setImageResource(imageId);
 
         return convertView;

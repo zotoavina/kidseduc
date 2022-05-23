@@ -71,7 +71,7 @@
                         android:gravity="center"
                         android:text="Login"
                         android:textColor="#FF5722"
-                        android:textSize="34sp" />
+                        android:textSize="24sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Name"
-                        android:textSize="24sp" />
+                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/username"
@@ -95,8 +95,8 @@
                         android:layout_weight="2"
                         android:ems="10"
                         android:inputType="textPersonName"
-                        android:text="Name"
-                        android:textSize="24sp" />
+                        android:text="njaratiana"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
 
@@ -114,7 +114,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Password"
-                        android:textSize="24sp" />
+                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/password"
@@ -123,7 +123,8 @@
                         android:layout_weight="2"
                         android:ems="10"
                         android:inputType="textPassword"
-                        android:textSize="24sp" />
+                        android:text="123456"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -141,7 +142,8 @@
                         android:fontFamily="sans-serif"
                         android:soundEffectsEnabled="false"
                         android:text="Login"
-                        android:textColor="#F3EFEF" />
+                        android:textColor="#F3EFEF"
+                        android:textSize="20sp" />
                 </LinearLayout>
 
                 <LinearLayout

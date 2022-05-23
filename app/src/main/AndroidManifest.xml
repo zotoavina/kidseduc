@@ -29,24 +29,25 @@
             android:exported="true" />
         <activity
             android:name=".views.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Splash"/>
         <activity
             android:name=".NavbarActivity"
             android:exported="true"
             android:label="@string/title_activity_navbar" />
         <activity
             android:name=".views.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"
+            android:theme="@style/Theme.Splash"/>
         <activity
             android:name=".views.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.Splash" />
+            android:theme="@style/Theme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".views.MainActivity"
             android:exported="true" />
