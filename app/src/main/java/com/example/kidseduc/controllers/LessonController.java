@@ -36,8 +36,7 @@ public class LessonController extends BaseController{
         return lessons;
     }
 
-    public String getLessonList()throws Exception{
-        String url = "http://10.0.2.2:8080/api/lessons";
+    public String getLessonList(String url)throws Exception{
         JsonObjectRequest lessonRequest = new JsonObjectRequest(Request.Method.GET, url , null,
                 response -> {
                     System.out.println("############ " + response.toString());

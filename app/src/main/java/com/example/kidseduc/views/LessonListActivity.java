@@ -35,7 +35,7 @@ public class LessonListActivity extends AppCompatActivity {
     private void init()throws Exception{
         lessonController = LessonController.getLessonController();
         lessonController.setContext(this);
-        lessonController.getLessonList();
+        lessonController.getLessonList(getString(R.string.app_api) + getString(R.string.app_api_lessons));
     }
 
     public void showList(){
