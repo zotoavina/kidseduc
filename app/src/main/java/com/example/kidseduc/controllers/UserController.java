@@ -165,6 +165,7 @@ public  class UserController extends BaseController{
         return null;
     }
 
+
     public String getName(){
         return user.getUsername();
     }
