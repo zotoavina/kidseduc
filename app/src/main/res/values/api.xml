@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_api">https://kidseducapi.herokuapp.com/</string>
+    <string name="app_api_login">api/user/login</string>
+    <string name="app_api_register">api/user/register</string>
+    <string name="app_api_lessons">api/lessons</string>
+</resources>

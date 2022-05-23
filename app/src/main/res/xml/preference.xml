@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:key="notification"
+        android:title="Allow notification"
+        android:summary="Click to switch on or off"
+        android:defaultValue="true"/>
+    <RingtonePreference
+        android:defaultValue=""
+        android:key="ringtone_preference_1"
+        android:title="Ringtone preference" />
+</PreferenceScreen>
