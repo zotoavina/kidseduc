@@ -16,4 +16,10 @@
         android:icon="@drawable/ic_parameter_black"
         android:title="Settings" />
 
+
+    <item
+        android:id="@+id/navigation_logout"
+        android:icon="@drawable/ic_parameter_black"
+        android:title="Logout" />
+
 </menu>

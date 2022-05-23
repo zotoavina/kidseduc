@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.kidseduc.R;
 import com.example.kidseduc.controllers.LessonController;
+import com.example.kidseduc.controllers.UserController;
 import com.example.kidseduc.models.Lesson;
 import com.example.kidseduc.utils.LessonListAdapter;
 
